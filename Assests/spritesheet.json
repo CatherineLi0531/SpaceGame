@@ -1,0 +1,495 @@
+{
+	"frames": {
+		"electric0.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"electric1.png": {
+			"frame": {
+				"x": 30,
+				"y": 1,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"electric2.png": {
+			"frame": {
+				"x": 59,
+				"y": 1,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"electric3.png": {
+			"frame": {
+				"x": 1,
+				"y": 23,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"electric4.png": {
+			"frame": {
+				"x": 30,
+				"y": 23,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"electric5.png": {
+			"frame": {
+				"x": 59,
+				"y": 23,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"electric6.png": {
+			"frame": {
+				"x": 1,
+				"y": 45,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"electric7.png": {
+			"frame": {
+				"x": 30,
+				"y": 45,
+				"w": 27,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 27,
+				"h": 20
+			}
+		},
+		"mosquito_connect0.png": {
+			"frame": {
+				"x": 88,
+				"y": 1,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_connect1.png": {
+			"frame": {
+				"x": 88,
+				"y": 23,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_connect2.png": {
+			"frame": {
+				"x": 59,
+				"y": 45,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_connect3.png": {
+			"frame": {
+				"x": 81,
+				"y": 45,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_connect4.png": {
+			"frame": {
+				"x": 1,
+				"y": 67,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_connect5.png": {
+			"frame": {
+				"x": 23,
+				"y": 67,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_connect6.png": {
+			"frame": {
+				"x": 45,
+				"y": 67,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_connect7.png": {
+			"frame": {
+				"x": 67,
+				"y": 67,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_drink0.png": {
+			"frame": {
+				"x": 89,
+				"y": 67,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_drink1.png": {
+			"frame": {
+				"x": 1,
+				"y": 89,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_drink2.png": {
+			"frame": {
+				"x": 23,
+				"y": 89,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_drink3.png": {
+			"frame": {
+				"x": 45,
+				"y": 89,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_fly0.png": {
+			"frame": {
+				"x": 67,
+				"y": 89,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_fly1.png": {
+			"frame": {
+				"x": 89,
+				"y": 89,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_fly2.png": {
+			"frame": {
+				"x": 110,
+				"y": 1,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		},
+		"mosquito_fly3.png": {
+			"frame": {
+				"x": 110,
+				"y": 23,
+				"w": 20,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 20,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 20,
+				"h": 20
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 131,
+			"h": 110
+		},
+		"scale": "1"
+	}
+}

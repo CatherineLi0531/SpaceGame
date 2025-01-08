@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+
+    var config = {
+        type: Phaser.AUTO,
+        width: 4000,
+        height: 2000,
+        physics: {
+            default: 'arcade',
+        },
+
+        scene: {
+            preload: preload,
+            create: create,
+            update: update,
+        }
+
+    };
+
+    class Emitter extends Phaser.Physics.Arcade.Sprite
+    {
+        // attributes:
+        // friendly: is it linked to a player or an enemy?
+        // rate: how many frames between attacks?
+        // velocity: total velocity of resulting Beam
+        constructor(scene, x, y, vel, friendly, rate)
+        {
+            super(scene, x, y, null);
+            scene.add.existing(this);
+            scene.physics.add.existing(this);
+            this.vel = vel;
+            this.friendly = friendly;
+            this.rate = rate
+        }
+
+        rateGetter() {
+            return this.rate
+        }
+        velocityGetter() {
+            return this.vel
+        }
+
+        shoot(ex, ey, px, py, vel) {
+            //console.log(ex + " " + ey + " " + px + " " + py + " ")
+            if (px < ex) {
+                angle = (Math.PI) + Math.atan((py - ey)/(px - ex))
+            } else {
+                angle = Math.atan((ty - ey)/(tx - ex))
+            }
+            /*console.log(Math.cos(angle))
+            console.log(Math.sin(angle))
+            console.log(angle)
+            console.log(this.vel)*/
+            this.blast = new Beam(this.scene, ex, ey, vel * Math.cos(angle), vel * Math.sin(angle), this.type)
+            //console.log(px + "  " + py)        
+        }
+
+    }
+    
+    class Beam extends Phaser.Physics.Arcade.Sprite
+    {
+        
+        constructor(scene, x, y, vx, vy, type)
+        {
+            super(scene, x, y, 'beam')
+            scene.add.existing(this);
+            scene.physics.add.existing(this);
+            this.setScale(1);
+            this.setCollideWorldBounds(false);
+            this.setVelocityX(vx);
+            this.setVelocityY(vy);
+            if (this.type === 0) {
+                this.friendly = true
+            }
+            console.log("beam created  " + this.body.velocity)
+            console.log(vx + "   " + vy)
+        }
+
+        
+    }
+
+
+
+    var game = new Phaser.Game(config);
+    //Game Objects
+    var ship;
+    var accel = 1000;
+    var maxSpeed = 700;
+    var friendlyemits = [];
+    var autonomousemits = [];
+    var count = 0
+    var playercount = 0
+    var shooting = false
+
+    //Keyboard controls
+    var cursors;
+    var keys;
+    var space;
+    var pointer;
+    var angle;
+
+    var gui;
+    var guiTimer;
+
+    function preload()
+    {
+        //this.load.image('ship', '/Assests/Player.png');
+        this.load.image('beam', '/Assests/Beam.png');
+    }
+
+    function create()
+    {
+        cursors = this.input.keyboard.createCursorKeys();
+        pointer = this.input.mousePointer
+        keys = this.input.keyboard.addKeys('A, D, W, S');
+        space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        spawnEmitter(this, 300, 300, 500, true, 10);
+        spawnEmitter(this, 700, 700, 2000, false, 30);
+    }
+
+    function update()
+    {
+        count += 1;
+        //console.log(count)
+        //console.log("testing123 " + autonomousemits)
+        for (let i in autonomousemits) {
+            obj = autonomousemits[i]
+            /*console.log("obj", obj)
+            console.log("emitted " + count)
+            console.log("modular operation: " + (count % obj.rateGetter()))
+            console.log(obj.rateGetter())*/
+            if ((count % obj.rateGetter() )=== 0) {
+                obj.autoShoot(obj.body.x, obj.body.y, pointer.x, pointer.y, obj.velocityGetter())
+            }
+        }
+        if (shooting === true) {
+            for (let i in friendlyemits) {
+                frog = friendlyemits[i]
+                frog.playerShoot(frog.x, frog.y, pointer.x, pointer.y, frog.vel)
+            }
+       
+        }
+
+
+
+    }
+
+    function spawnEmitter(scene, x, y, vel, friendly, rate) {
+        emitter = new Emitter(scene, x, y, vel, friendly, rate);
+        if (friendly === true) {
+            friendlyemits.push(emitter);
+            scene.input.on("pointerdown", function(pointer) { 
+            emitter.shoot(x, y, pointer.x, pointer.y, vel); } , scene);
+            //console.log(x + " " + y + " " + pointer.x + " " + pointer.y)
+        } else if (friendly === false) {
+            autonomousemits.push(emitter)     
+            //console.log(autonomousemits)   
+            return 
+        }
+        return false
+    }
+
+
+    </script>
+
+</body>
+
+</html>

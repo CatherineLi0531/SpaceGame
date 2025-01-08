@@ -1,0 +1,45 @@
+html, body {
+    background: #000A34;
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+#menu {
+    margin: 0;
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+ol {
+    list-style-type: none;
+    align-items: center;
+    text-align: center;
+}
+
+ol li {
+    margin: auto;
+    height: 33%;
+    width: 80%;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+li button {
+    color: white;
+    font-size: 32px;
+    background-color: #121212;
+    width: 80%;
+    height: 80%;
+    border-color: white;
+}

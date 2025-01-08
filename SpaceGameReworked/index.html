@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+	<meta charset='utf-8'/>
+	<link rel='stylesheet' type='text/css' href='style.css'/>
+	<title>Space Game</title>
+	<script src='//cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.js'></script>
+    </head>
+    <body>
+	    <!--
+	<ol>
+	    <li>SPACE GAME</li>
+	    <li><button>Start</button></li>
+	    <li><button id='about'>About</button></li>
+	</ol>
+	    -->
+	<script>
+	    window.onload = function() {
+		var sources = [
+		    'movementRework.js',
+	        'shootingRework.js',
+	        'enemyRework.js',
+		    'game.js'
+		]
+		for (let i = 0; i < sources.length; i++) {
+		    let source = document.createElement('script')
+		    source.src = sources[i]
+		    document.body.appendChild(source)
+		}
+	    }
+	</script>
+    </body>
+</html>

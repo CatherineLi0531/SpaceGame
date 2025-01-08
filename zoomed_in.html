@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        //variable zone
+        var keys;
+        var pointer;
+        var player;
+        var devicelist = []
+        var cooldown = -999
+        var timer
+        var playerspeed = 75
+
+        
+        class Device extends Phaser.Physics.Arcade.Sprite
+    {
+        constructor(scene, x, y, type, engine)
+        {
+            super(scene, x, y, type);
+            scene.add.existing(this);
+            this.setScale(2)
+            scene.physics.add.existing(this);
+            this.type = type
+            this.availabletime = 0
+            this.passivetime = 0
+            this.gui = this.scene.add.text(0,0,'wait')
+            if (this.type == 'engine'){
+                this.fuel = 100
+                this.cooldown = 40
+                this.passivecooldown = 1000
+                this.engine = engine
+            }
+            if (this.type == 'oxygen') {
+                this.fuel = 100
+                this.cooldown = 50
+                this.passivecooldown = 5000
+            }
+        }
+
+        interact(){
+            if (this.type === 'engine'){
+                if (this.scene.time.now > this.availabletime){
+                    this.fuel += 2                   
+                    this.availabletime = this.scene.time.now + this.cooldown
+                    if (this.fuel > 100){
+                        this.fuel = 100
+                    }
+                }
+
+            }
+            if (this.type === 'oxygen'){
+                if (this.scene.time.now > this.availabletime){
+                    this.fuel = 100                  
+                    this.availabletime = this.scene.time.now + this.cooldown
+                }
+            }
+
+        }
+        passive(){
+            if (this.type === 'engine'){
+                this.gui.destroy()
+                this.gui = this.scene.add.text(this.x - this.gui.width/2, this.y - this.height * 1.5, 'Fuel: ' + this.fuel, {fontSize: '14px', fill: '#ff0000'})
+                if (this.scene.time.now > this.passivetime){
+                    this.fuel -= 1
+                    this.passivetime = this.scene.time.now + this.passivecooldown
+                    if (this.fuel <= 0){
+                        this.fuel = 0
+                    }
+                }
+            }
+            if (this.type === 'oxygen'){
+                this.gui.destroy()
+                this.gui = this.scene.add.text(this.x - this.gui.width/2, this.y - this.height, 'Oxygen: ' + this.fuel, {fontSize: '14px', fill: '#0088ff'})
+                if (this.scene.time.now > this.passivetime){
+                    this.fuel -= 1
+                    this.passivetime = this.scene.time.now + this.passivecooldown
+                    if (this.fuel <= 0){
+                        this.fuel = 0
+                    }
+                    playerspeed = this.fuel * 0.75
+                }
+            }
+        }
+    }
+    
+
+
+        class Player extends Phaser.Physics.Arcade.Sprite
+        {
+            constructor(scene, x, y)
+            {
+                super(scene, x, y, 'player');
+                scene.add.existing(this);
+                scene.physics.add.existing(this);
+                this.setCollideWorldBounds(true)
+                this.setScale(2)
+            }
+        }
+
+        
+
+        var config = {
+
+            type: Phaser.AUTO,
+
+            width: 800,
+
+            height: 800,
+
+            backgroundColor: '#9c9c9c',
+
+            physics: {
+
+                default: 'arcade',
+
+                arcade: {
+
+                    gravity: { y: 0 }
+
+                }},
+
+            scene: {
+
+                preload: preload,
+
+                create: create,
+
+                update: update
+
+            }
+
+        };
+
+        var game = new Phaser.Game(config);
+
+        function preload ()
+
+        {            
+            this.load.image('engine', 'Assests/gas.png')
+            this.load.image('oxygen', 'Assests/oxygen.png')
+            this.load.image('player', 'Assests/player.png')
+        }
+
+        function create () 
+        {
+            player = new Player(this, 0, 0)
+            newDevice(this, 400,100,'engine', 'front')
+            newDevice(this, 100,200,'engine', 'left')
+            newDevice(this, 700,200,'engine', 'right')
+            newDevice(this, 400,550,'oxygen')
+            keys = this.input.keyboard.addKeys('A, D, W, S, E');
+            space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        }
+
+        function update ()
+        {
+            player.setVelocity(0)
+
+            for (i = 0; i < devicelist.length; i++){
+                devicelist[i].passive()
+            }
+            
+            if (keys.W.isDown)
+            {
+                
+                player.setVelocityY(-playerspeed)
+                player.angle = 0
+                
+            }
+            if (keys.A.isDown)
+            {
+                
+                player.setVelocityX(-playerspeed)
+                player.angle = 270
+                
+            }
+            if (keys.S.isDown)
+            {
+                
+                player.setVelocityY(playerspeed)
+                player.angle = 180
+                
+            }
+            if (keys.D.isDown)
+            {
+                player.angle = 90
+                player.setVelocityX(playerspeed)
+            }
+        }
+
+    function repair(player, device)
+    {
+        if (keys.E.isDown){
+            device.interact()
+        }
+    }
+
+    function newDevice(scene, x, y, type){
+        let newdevice = new Device(scene, x, y, type)
+        devicelist.push(newdevice)
+        scene.physics.add.overlap(player, devicelist, repair , null, this);
+    }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
